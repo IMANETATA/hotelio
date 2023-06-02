@@ -74,6 +74,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assets/images/hotel.png
+    - assets/images/restaurant.png
+    - assets/images/spa.png
     - assets/images/b.png
     - assets/images/main_bottom.png
     - assets/images/login_bottom.png
