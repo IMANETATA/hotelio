@@ -85,7 +85,7 @@ class HeaderWithSearchBox extends StatelessWidget {
                                     },
                                     decoration: InputDecoration(
                                       hintText: "Search",
-                                      hintStyle: TextStyle(color: kPrimaryLightColor.withOpacity(0.5)
+                                      hintStyle: TextStyle(color: kPrimaryColor.withOpacity(0.5)
                                       ),
                                       enabledBorder: InputBorder.none,
                                       focusedBorder: InputBorder.none,
