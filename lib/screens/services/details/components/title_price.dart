@@ -23,13 +23,13 @@ final double price;
                   color: kTextColor,
                   fontWeight: FontWeight.bold)
               ),
-               TextSpan(
+              TextSpan(
                 // ignore: unnecessary_string_interpolations
                 text: type,
                 style:const TextStyle(
                   fontSize: 20,
                   color: kPrimaryColor,
-                  fontWeight: FontWeight.w300,
+                  fontWeight: FontWeight.w400,
                 )
               )
             ]

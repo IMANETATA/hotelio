@@ -14,14 +14,14 @@ class ImageandIcons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: kDefaultPadding * 3),
+      padding: const EdgeInsets.only(bottom: kDefaultPadding * 2),
       child: SizedBox(
         height: size.height * 0.8,
         child: Row(
           children: [
             Expanded(
               child:Padding(
-                padding:const EdgeInsets.symmetric(vertical: kDefaultPadding * 3 ),
+                padding:const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
                 child: Column(
                             children: [
                 Align(

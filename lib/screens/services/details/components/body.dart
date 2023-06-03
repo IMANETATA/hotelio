@@ -35,14 +35,28 @@ class Body extends StatelessWidget {
                 ),
                 child:const Text("Book Now",
                 style:TextStyle(
-                  color: Colors.white,
-                  fontSize: 16
+                  color: Colors.black,
+                  fontSize: 18
                 ) ,
                 ) ,
-                onPressed:(){} ,),
+                onPressed:(){}),
               ),
-              Expanded(child: ElevatedButton(child:const Text("Description"),
-              onPressed:(){} ,))
+              Expanded(child: TextButton(
+              onPressed:(){} ,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                  shape:const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(0)
+                    ),
+                  ),
+              ),
+              child:const Text("Description",
+              style:TextStyle(
+                  color: Colors.black,
+                  fontSize: 16
+                ) ,),
+              ))
             ],),
             
           ],
