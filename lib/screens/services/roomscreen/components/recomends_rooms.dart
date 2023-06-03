@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:hotelio/constants.dart';
+import 'package:hotelio/screens/services/details/details_screen.dart';
 class RecomendsRooms extends StatelessWidget {
   const RecomendsRooms({
     super.key,
@@ -17,21 +18,39 @@ class RecomendsRooms extends StatelessWidget {
             title:"luxury" ,
             type:"comfort" ,
             price:440 ,
-            press:(){} ,
+            press:(){
+              Navigator.push(
+              context, 
+              MaterialPageRoute(builder: (context){
+                return const DetailsScreen();
+              }));
+            } ,
           ),
           RecomendRoomCard(
             image: "assets/images/chamb.png",
             title:"standard" ,
             type:"relax" ,
             price:350 ,
-            press:(){} ,
+            press:(){
+              Navigator.push(
+              context, 
+              MaterialPageRoute(builder: (context){
+                return const DetailsScreen();
+              }));
+            } ,
           ),
           RecomendRoomCard(
             image: "assets/images/cham.png",
             title:"standard" ,
             type:"relax" ,
             price:320 ,
-            press:(){} ,
+            press:(){
+              Navigator.push(
+              context, 
+              MaterialPageRoute(builder: (context){
+                return const DetailsScreen();
+              }));
+            } ,
           ),
         ],
       ),

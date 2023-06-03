@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:hotelio/screens/welcome_screen.dart';
 import 'constants.dart';
 void main() {
-
   runApp(const MyApp());
 }
 //web
