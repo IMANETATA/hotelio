@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hotelio/components/rounded_button.dart';
 import 'package:hotelio/constants.dart';
 import 'package:hotelio/screens/services/restaurant_page.dart';
-import 'package:hotelio/screens/services/room_page.dart';
+import 'package:hotelio/screens/services/roomscreen/room_page.dart';
 import 'package:hotelio/screens/services/spa_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,18 +13,21 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimaryColor,
-        title:const Text('Hotelio',style: TextStyle(color: Colors.white),),
+        iconTheme:const IconThemeData(
+          color: Colors.white, // Modifier la couleur de l'icône de la flèche
+        ),
+        title:const Text('Hotelio', style: TextStyle(color: Colors.white)),
       ),
       body:const SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             HotelImage(),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             HotelDescription(),
-            SizedBox(height: 15),
+            SizedBox(height: 10),
             BookButton(),
-            SizedBox(height: 15),
+            SizedBox(height: 10),
             ServicesSection(),
           ],
         ),
@@ -40,7 +43,7 @@ class HotelImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Image.asset(
       'assets/images/hotel.png',
-      height: 250,
+      height: 200,
       width: double.infinity,
       fit: BoxFit.cover,
     );
@@ -96,6 +99,7 @@ class BookButton extends StatelessWidget {
                   );
         },
         text: "Discover",
+        
           ),
         );
        
