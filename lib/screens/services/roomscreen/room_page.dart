@@ -1,14 +1,15 @@
 // ignore_for_file: constant_identifier_names
 
 import 'package:flutter/material.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hotelio/constants.dart';
 import 'package:hotelio/screens/services/roomscreen/components/body.dart';
-//import 'package:hotelio/screens/services/roomscreen/components/body.dart';
 import 'package:hotelio/screens/services/roomscreen/components/buttom_navbar.dart';
 import 'package:hotelio/screens/services/roomscreen/components/my_drawer_header.dart';
-import 'package:hotelio/screens/services/roomscreen/contacts.dart';
+import 'package:hotelio/screens/services/roomscreen/favorite.dart';
+import 'package:hotelio/screens/services/roomscreen/feedback.dart';
+import 'package:hotelio/screens/services/roomscreen/notifications.dart';
 import 'package:hotelio/screens/services/roomscreen/privacy_policy.dart';
+import 'package:hotelio/screens/services/roomscreen/services.dart';
 class RoomPage extends StatefulWidget {
   const RoomPage({super.key});
 
@@ -24,10 +25,18 @@ class _RoomPageState extends State<RoomPage> {
     var container;
     if(currentPage==DrawerSections.home){
     container=const BodyR();
-    }else if(currentPage==DrawerSections.contacts){
-      container=const ContactPage();
+    }else if(currentPage==DrawerSections.search){
+      container=const BodyR();
+    }else if(currentPage==DrawerSections.services){
+      container=const ServicePage();
     }else if(currentPage==DrawerSections.privacy_policy){
       container=const PrivacyPolicyPage();
+    }else if(currentPage==DrawerSections.notifications){
+      container=const NotificationPage();
+    }else if(currentPage==DrawerSections.send_feedback){
+      container=const FeedbackPage();
+    }else if(currentPage==DrawerSections.favorites){
+      container=const FavoritePage();
     }
     return Scaffold(
       appBar:AppBar(
@@ -63,36 +72,32 @@ class _RoomPageState extends State<RoomPage> {
         child: Column(
           children: [
             menuItem(
-              1,"home",Icons.home_outlined,
+              1,"Home",Icons.home_outlined,
               currentPage == DrawerSections.home? true : false
             ),
              menuItem(
-              2,"Contacts",Icons.people_alt_outlined,
-              currentPage == DrawerSections.contacts? true : false
+              2,"Search",Icons.search,
+              currentPage == DrawerSections.search? true : false
             ),
              menuItem(
-              3,"Events",Icons.event,
-              currentPage == DrawerSections.events? true : false
+              3,"Services",Icons.room_service,
+              currentPage == DrawerSections.services? true : false
             ),
              menuItem(
-              4,"Notes",Icons.notes,
-              currentPage == DrawerSections.notes? true : false
+              4,"Privacy policy",Icons.privacy_tip_outlined,
+              currentPage == DrawerSections.privacy_policy? true : false
             ),
             menuItem(
-              5,"Settings",Icons.settings_outlined,
-              currentPage == DrawerSections.settings? true : false
-            ),
-             menuItem(
-              6,"Notifications",Icons.notifications_outlined,
+              5,"Notifications",Icons.notifications,
               currentPage == DrawerSections.notifications? true : false
             ),
              menuItem(
-              7,"Privacy policy",Icons.privacy_tip_outlined,
-              currentPage == DrawerSections.privacy_policy? true : false
+              6,"Send feedback",Icons.feedback_outlined,
+              currentPage == DrawerSections.send_feedback? true : false
             ),
              menuItem(
-              8,"Send feedback",Icons.feedback_outlined,
-              currentPage == DrawerSections.send_feedback? true : false
+              7,"Favorites",Icons.favorite,
+              currentPage == DrawerSections.favorites? true : false
             ),
 
           ],
@@ -110,19 +115,17 @@ class _RoomPageState extends State<RoomPage> {
               if(id==1){
                 currentPage=DrawerSections.home;
               }else if(id==2){
-                currentPage=DrawerSections.contacts;
+                currentPage=DrawerSections.search;
               }else if(id==3){
-                currentPage=DrawerSections.events;
+                currentPage=DrawerSections.services;
               }else if(id==4){
-                currentPage=DrawerSections.notes;
-              }else if(id==5){
-                currentPage=DrawerSections.settings;
-              }else if(id==6){
-                currentPage=DrawerSections.notifications;
-              }else if(id==7){
                 currentPage=DrawerSections.privacy_policy;
-              }else if(id==8){
+              }else if(id==5){
+                currentPage=DrawerSections.notifications;
+              }else if(id==6){
                 currentPage=DrawerSections.send_feedback;
+              }else if(id==7){
+                currentPage=DrawerSections.favorites;
               }
             });
           } ,
@@ -153,12 +156,10 @@ class _RoomPageState extends State<RoomPage> {
 }
         enum DrawerSections{
               home,
-              contacts,
-              events,
-              notes,
-              settings,
-              notifications,
+              search,
+              services,
               privacy_policy,
+              notifications,
               send_feedback,
-
+              favorites,
             }

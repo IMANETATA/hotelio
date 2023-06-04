@@ -33,10 +33,24 @@ class BottomNavBar extends StatelessWidget {
             color: kPrimaryColor,
             size: 30, 
             ),),
+             IconButton(
+          onPressed: (){},
+          icon: const Icon(
+            Icons.menu_book_sharp,
+            color: kPrimaryColor, 
+            size: 30,
+            ),),
             IconButton(
           onPressed: (){},
           icon: const Icon(
             Icons.favorite,
+            color: kPrimaryColor, 
+            size: 30,
+            ),),
+             IconButton(
+          onPressed: (){},
+          icon: const Icon(
+            Icons.search,
             color: kPrimaryColor, 
             size: 30,
             ),),
