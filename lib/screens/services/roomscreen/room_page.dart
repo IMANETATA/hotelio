@@ -8,6 +8,7 @@ import 'package:hotelio/screens/services/roomscreen/components/body.dart';
 import 'package:hotelio/screens/services/roomscreen/components/buttom_navbar.dart';
 import 'package:hotelio/screens/services/roomscreen/components/my_drawer_header.dart';
 import 'package:hotelio/screens/services/roomscreen/contacts.dart';
+import 'package:hotelio/screens/services/roomscreen/privacy_policy.dart';
 class RoomPage extends StatefulWidget {
   const RoomPage({super.key});
 
@@ -25,6 +26,8 @@ class _RoomPageState extends State<RoomPage> {
     container=const BodyR();
     }else if(currentPage==DrawerSections.contacts){
       container=const ContactPage();
+    }else if(currentPage==DrawerSections.privacy_policy){
+      container=const PrivacyPolicyPage();
     }
     return Scaffold(
       appBar:AppBar(
