@@ -13,21 +13,24 @@ class BodyR extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size =MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          HeaderWithSearchBox(size: size),
+    return  Container(
+      margin:const EdgeInsets.all(0),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            HeaderWithSearchBox(size: size),
+            TitleWithMoreBtn(
+              title: "Recomended",
+              press: (){},
+            ),
+          const RecomendsRooms(),
           TitleWithMoreBtn(
-            title: "Recomended",
-            press: (){},
-          ),
-        const RecomendsRooms(),
-        TitleWithMoreBtn(
-          title: "Rooms for Booking",
-          press: (){}),
-          const RoomsBooking(),
-          const SizedBox(height: kDefaultPadding,)
-        ],
+            title: "Rooms for Booking",
+            press: (){}),
+            const RoomsBooking(),
+            const SizedBox(height: kDefaultPadding,)
+          ],
+        ),
       ),
     );
   }
