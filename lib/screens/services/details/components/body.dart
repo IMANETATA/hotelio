@@ -1,7 +1,11 @@
+// ignore_for_file: library_private_types_in_public_api
 import 'package:flutter/material.dart';
 import 'package:hotelio/constants.dart';
 import 'package:hotelio/screens/services/details/components/image_icons.dart';
 import 'package:hotelio/screens/services/details/components/title_price.dart';
+//import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+
+
 
 class Body extends StatelessWidget {
   const Body({super.key});
@@ -39,10 +43,12 @@ class Body extends StatelessWidget {
                   fontSize: 18
                 ) ,
                 ) ,
-                onPressed:(){}),
+                onPressed:(){
+
+                }),
               ),
               Expanded(child: TextButton(
-              onPressed:(){} ,
+              onPressed:(){},
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
                   shape:const RoundedRectangleBorder(
@@ -58,7 +64,6 @@ class Body extends StatelessWidget {
                 ) ,),
               ))
             ],),
-            
           ],
         ),
       ),

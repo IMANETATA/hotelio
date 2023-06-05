@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hotelio/constants.dart';
+import 'package:hotelio/screens/home/homepage.dart';
+import 'package:hotelio/screens/services/roomscreen/favorite.dart';
+import 'package:hotelio/screens/services/roomscreen/privacy_policy.dart';
 
 
 class BottomNavBar extends StatelessWidget {
@@ -27,7 +30,14 @@ class BottomNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           IconButton(
-          onPressed: (){},
+          onPressed: (){
+            Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>const HomePage(),
+                    ),
+                  );
+          },
           icon: const Icon(
             Icons.home,
             color: kPrimaryColor,
@@ -41,21 +51,28 @@ class BottomNavBar extends StatelessWidget {
             size: 30,
             ),),
             IconButton(
-          onPressed: (){},
+          onPressed: (){
+            Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>const FavoritePage(),
+                    ),
+                  );
+          },
           icon: const Icon(
             Icons.favorite,
             color: kPrimaryColor, 
             size: 30,
             ),),
-             IconButton(
-          onPressed: (){},
-          icon: const Icon(
-            Icons.search,
-            color: kPrimaryColor, 
-            size: 30,
-            ),),
             IconButton(
-          onPressed: (){},
+          onPressed: (){
+            Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>const PrivacyPolicyPage(),
+                    ),
+                  );
+          },
           icon: const Icon(
             Icons.person,
             color: kPrimaryColor, 
