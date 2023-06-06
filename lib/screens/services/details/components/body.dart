@@ -61,25 +61,36 @@ class _BodyState extends State<Body> {
   context: context,
   builder: (BuildContext context) {
     return AlertDialog(
-      
-      title: const Text("Book Now"),
-      content: const HomeScreen(),
-      actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context); // Ferme la boîte de dialogue
-          },
-          child: const Text("Cancel"),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            // Traitez la logique de réservation ici
-            Navigator.pop(context); // Ferme la boîte de dialogue
-          },
-          child: const Text("Book"),
-        ),
-      ],
-    );
+  backgroundColor: Colors.white,
+  title: const Text("Book Now", textAlign: TextAlign.center),
+  content: const HomeScreen(),
+  contentPadding:const EdgeInsets.all(16), 
+  actions: [
+    TextButton(
+      onPressed: () {
+        Navigator.pop(context); // Ferme la boîte de dialogue
+      },
+      child: const Text(
+        "Cancel",
+        style: TextStyle(color: Colors.black),
+      ),
+    ),
+    ElevatedButton(
+      onPressed: () {
+        // Traitez la logique de réservation ici
+        
+        Navigator.pop(context); // Ferme la boîte de dialogue
+      },
+      style: ElevatedButton.styleFrom(
+        backgroundColor: kPrimaryColor,
+      ),
+      child: const Text(
+        "Book",
+        style: TextStyle(color: Colors.white),
+      ),
+    ),
+  ],
+);
   },
 );
                     },
@@ -145,6 +156,8 @@ class _HomeScreenState extends State<HomeScreen> {
           Text(end?.toIso8601String() ?? "-"),
           const SizedBox(height: 16),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                    backgroundColor: kPrimaryColor,),
             onPressed: () async {
               final result = await showDateRangePicker(
                 context: context,
@@ -158,7 +171,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
               }
             },
-            child: const Text("Pick Date"),
+            child: const Text("Pick Date",style: TextStyle(
+              color: Colors.white
+            ),),
           ),
           TextField(
       decoration:const  InputDecoration(
@@ -182,6 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });
       },
     ),
+    const SizedBox(height: 16,),
     Text(
           "Number of Rooms: ${numberOfRooms ?? "-"}",
           style: Theme.of(context).textTheme.bodyLarge,
@@ -273,7 +289,7 @@ class _DatePickerScreenState extends State<DatePickerScreen> {
 
 
 
-
+/*
 class TimeDateView extends StatefulWidget {
   const TimeDateView({super.key});
 
@@ -332,7 +348,7 @@ class _TimeDateViewState extends State<TimeDateView> {
 
       ),
     );
-  }
+  }*/
 /*
   void _showDemoDialog(BuildContext context){
     showDialog(
@@ -342,8 +358,9 @@ class _TimeDateViewState extends State<TimeDateView> {
     )
     )
   }*/
-}
+/*}*/
 
+/*
 class CalenderPopView extends StatefulWidget {
   
   const CalenderPopView ({super.key, required this.minimumDate, required this.maximumDate, required this.barrierDissmissible, required this.initialStartDate, required this.initialEndDate, required this.onApplyClick, required this.onCancelClick});
@@ -381,7 +398,7 @@ class _CalenderPopViewState extends State<CalenderPopView > with TickerProviderS
 }
 
 
-
+*/
 
 /*
 class Body extends StatelessWidget {
