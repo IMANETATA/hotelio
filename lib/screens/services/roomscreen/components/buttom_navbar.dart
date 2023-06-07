@@ -55,7 +55,7 @@ class BottomNavBar extends StatelessWidget {
             Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>const FavoritePage(),
+                      builder: (context) =>  FavoritePage(),
                     ),
                   );
           },

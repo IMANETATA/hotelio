@@ -36,7 +36,7 @@ class _RoomPageState extends State<RoomPage> {
     }else if(currentPage==DrawerSections.send_feedback){
       container=const FeedbackPage();
     }else if(currentPage==DrawerSections.favorites){
-      container=const FavoritePage();
+      container=  FavoritePage();
     }
     return Scaffold(
       appBar:AppBar(

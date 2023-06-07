@@ -94,7 +94,9 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  OutlinedButton(onPressed: (){}, 
+                  OutlinedButton(onPressed: (){
+                    Navigator.pop(context);
+                  }, 
                   style: OutlinedButton.styleFrom(
                     padding:const EdgeInsets.symmetric(horizontal: 50),
                     shape: RoundedRectangleBorder(
@@ -108,7 +110,9 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
                   ),),
                   ),
                   ElevatedButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    
+                  },
                   style:ElevatedButton.styleFrom(
                     backgroundColor: kPrimaryColor,
                     padding: const EdgeInsets.symmetric(horizontal: 50),
