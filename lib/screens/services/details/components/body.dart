@@ -12,9 +12,7 @@ import 'package:intl/intl.dart';
 
 
 class Body extends StatefulWidget {
-  const Body({super.key});
-
-  
+  const Body({Key? key}) : super(key: key);
 
   @override
   State<Body> createState() => _BodyState();
@@ -37,63 +35,90 @@ class _BodyState extends State<Body> {
             const SizedBox(height: kDefaultPadding),
             Row(
               children: [
-                SizedBox(
-                  width: size.width / 2,
-                  height: 84,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(20),
+                Expanded(
+                  child: SizedBox(
+                    height: 84,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20),
+                          ),
+                        ),
+                        backgroundColor: kPrimaryLightColor,
+                      ),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              backgroundColor: Colors.white,
+                              //title: const Text(
+                              //  "Book Now",
+                              //  textAlign: TextAlign.center,
+                              //),
+                              content: const HomeScreen(),
+                              contentPadding:
+                                  const EdgeInsets.symmetric(horizontal: 16),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text(
+                                    "Cancel",
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                ),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return AlertDialog(
+                                          content: const Text(
+                                            "Your reservation has been made.",
+                                            style: TextStyle(fontSize: 15),
+                                          ),
+                                          actions: [
+                                            ElevatedButton(
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: const Text(
+                                                "OK",
+                                                style: TextStyle(
+                                                  color: backgroundColor2,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: kPrimaryColor,
+                                  ),
+                                  child: const Text(
+                                    "Book",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      },
+                      child: const Text(
+                        "Book Now",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
                         ),
                       ),
-                      backgroundColor: kPrimaryLightColor,
                     ),
-                    child: const Text(
-                      "Book Now",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 18,
-                      ),
-                    ),
-                    onPressed: () {
-                      showDialog(
-  context: context,
-  builder: (BuildContext context) {
-    return AlertDialog(
-  backgroundColor: Colors.white,
-  title: const Text("Book Now", textAlign: TextAlign.center),
-  content: const HomeScreen(),
-  contentPadding:const EdgeInsets.all(16), 
-  actions: [
-    TextButton(
-      onPressed: () {
-        Navigator.pop(context); // Ferme la boîte de dialogue
-      },
-      child: const Text(
-        "Cancel",
-        style: TextStyle(color: Colors.black),
-      ),
-    ),
-    ElevatedButton(
-      onPressed: () {
-        // Traitez la logique de réservation ici
-        
-        Navigator.pop(context); // Ferme la boîte de dialogue
-      },
-      style: ElevatedButton.styleFrom(
-        backgroundColor: kPrimaryColor,
-      ),
-      child: const Text(
-        "Book",
-        style: TextStyle(color: Colors.white),
-      ),
-    ),
-  ],
-);
-  },
-);
-                    },
                   ),
                 ),
                 Expanded(
@@ -125,7 +150,6 @@ class _BodyState extends State<Body> {
   }
 }
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -147,17 +171,25 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            "Pick Date",
+            "Pick Date:",
+            textAlign: TextAlign.left,
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(height: 16),
-          Text(start?.toIso8601String() ?? "-"),
-          const Text("To"),
-          Text(end?.toIso8601String() ?? "-"),
+          Text(
+            start != null ? DateFormat('dd-MM-yyyy').format(start!) : "-",
+            style:const TextStyle(fontSize: 18),
+          ),
+          const Text("To", style: TextStyle(fontSize: 18)),
+          Text(
+            end != null ? DateFormat('dd-MM-yyyy').format(end!) : "-",
+            style:const TextStyle(fontSize: 18),
+          ),
           const SizedBox(height: 16),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-                    backgroundColor: kPrimaryColor,),
+              backgroundColor: kPrimaryColor,
+            ),
             onPressed: () async {
               final result = await showDateRangePicker(
                 context: context,
@@ -171,46 +203,50 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
               }
             },
-            child: const Text("Pick Date",style: TextStyle(
-              color: Colors.white
-            ),),
+            child: const Text(
+              "Pick Date",
+              style: TextStyle(color: Colors.white),
+            ),
           ),
           TextField(
-      decoration:const  InputDecoration(
-      labelText: "Number of Rooms",
-      ),
-      keyboardType: TextInputType.number,
-      onChanged: (value) {
-      setState(() {
-        numberOfRooms = int.tryParse(value);
-      });
-      },
-    ),
-    TextField(
-      decoration:const InputDecoration(
-      labelText: "Number of People",
-      ),
-      keyboardType: TextInputType.number,
-      onChanged: (value) {
-      setState(() {
-        numberOfPeople = int.tryParse(value);
-      });
-      },
-    ),
-    const SizedBox(height: 16,),
-    Text(
-          "Number of Rooms: ${numberOfRooms ?? "-"}",
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
-        Text(
-          "Number of People: ${numberOfPeople ?? "-"}",
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
+            decoration: const InputDecoration(
+              labelText: "Number of Rooms",
+            ),
+            keyboardType: TextInputType.number,
+            onChanged: (value) {
+              setState(() {
+                numberOfRooms = int.tryParse(value);
+              });
+            },
+          ),
+          TextField(
+            decoration: const InputDecoration(
+              labelText: "Number of People",
+            ),
+            keyboardType: TextInputType.number,
+            onChanged: (value) {
+              setState(() {
+                numberOfPeople = int.tryParse(value);
+              });
+            },
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Text(
+            "Number of Rooms: ${numberOfRooms ?? "-"}",
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
+          Text(
+            "Number of People: ${numberOfPeople ?? "-"}",
+            style: Theme.of(context).textTheme.bodyLarge,
+          ),
         ],
       ),
     );
   }
 }
+
 
 /*
 class DatePickerScreen extends StatefulWidget {
