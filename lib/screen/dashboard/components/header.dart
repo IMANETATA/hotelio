@@ -9,14 +9,18 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return const Row(
      children: [
-       Text("Dashboard",style: Theme.of(context).textTheme.headlineMedium),
-       const Spacer(flex: 2,),
-      const Expanded(
+       Text("Dashboard",style:TextStyle(
+        fontSize: 30,
+        color: kPrimaryColor
+       ) ),
+       //Theme.of(context).textTheme.headlineMedium),
+       Spacer(flex: 2,),
+       Expanded(
          child: SearchField()
        ),
-    const ProfileCard()
+     ProfileCard()
      ],
     );
   }
@@ -81,7 +85,7 @@ class SearchField extends StatelessWidget {
               horizontal: dPadding / 2
             ) ,
             decoration:const BoxDecoration(
-              color: Colors.white,
+              color: kPrimaryColor,
               borderRadius:BorderRadius.all(Radius.circular(10))
             ),
             child:const Icon(
