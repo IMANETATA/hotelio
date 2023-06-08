@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:hotelio/screen/dashboard/dashboard_screen.dart';
 import 'package:hotelio/screen/main/components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
@@ -7,7 +8,7 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Row(
           children: [
@@ -16,9 +17,7 @@ class MainScreen extends StatelessWidget {
             ),
              Expanded(
               flex:5 ,
-              child: Container(
-                color: Colors.white,
-              )
+              child: DashboardScreen()
             )
           ],
         )
