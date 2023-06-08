@@ -29,7 +29,15 @@ class FavoritePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:const Text("Favorites"),
+        backgroundColor: kPrimaryColor,
+        title:const Text("Favorites",style: TextStyle(color: Colors.white)),
+        leading:IconButton(
+        onPressed: (){
+          Navigator.pop(context);
+        }, 
+        icon:const Icon(Icons.arrow_back,
+        color: Colors.white,)
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(

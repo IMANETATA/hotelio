@@ -1,5 +1,8 @@
+
 import 'package:flutter/material.dart';
-import 'package:hotelio/screens/welcome_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:hotelio/screen/main/main_screen.dart';
+//import 'package:hotelio/screens/welcome_screen.dart';
 import 'constants.dart';
 void main() {
   runApp(const MyApp());
@@ -13,6 +16,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      title: "Flutter Admin Panel",
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: kPrimaryLightColor,
+        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
+        .apply(bodyColor: Colors.white),
+        canvasColor: kPrimaryColor,
+      ),
+      home:const MainScreen(),
+    );
+
+   /* return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',
       theme: ThemeData(
         primaryColor: kPrimaryColor,
@@ -20,7 +35,8 @@ class MyApp extends StatelessWidget {
     //  colorScheme: ColorScheme.fromSeed(primarySwatch: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const WelcomeScreen(),
-    );
+     home: const WelcomeScreen(),
+     //home:const MainScreen() ,
+    );*/
   }
 }
