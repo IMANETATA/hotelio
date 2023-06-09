@@ -34,7 +34,7 @@ class Chart extends StatelessWidget {
           ),
             
           ),
-          const Text("of 128 GB")
+         // const Text("of 128 GB")
         ],))
         ],
       ),
@@ -58,12 +58,6 @@ List<PieChartSectionData> pieChartSelectionDatas= [
                                 PieChartSectionData(
                                 color: kPrimaryLightColor,
                                 value: 10,
-                                showTitle: false,
-                                radius: 25
-                                ),
-                                PieChartSectionData(
-                                color:primaryColor,
-                                value: 15,
                                 showTitle: false,
                                 radius: 25
                                 ),

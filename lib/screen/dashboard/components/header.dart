@@ -42,7 +42,6 @@ class ProfileCard extends StatelessWidget {
         color: kPrimaryColor,
         borderRadius:const BorderRadius.all(Radius.circular(10)),
         border: Border.all(color:kPrimaryLightColor),
-
       ),
       child: Row(
         children: [
@@ -53,7 +52,6 @@ class ProfileCard extends StatelessWidget {
             child: Text("Admin",style: TextStyle(color: Colors.black),),
           ),
           const Icon(Icons.keyboard_arrow_down,color: Colors.black,),
-    
         ],
       ),
     );
