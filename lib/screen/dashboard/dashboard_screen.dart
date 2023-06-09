@@ -22,10 +22,14 @@ class DashboardScreen extends StatelessWidget {
             children: [
               Expanded(
                 flex: 5,
-                child:Container(
-                  height:500 ,
-                  color: Colors.white,
-                )
+                child:Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text("MyFiles")
+                      ],
+                    )
+                  ],)
               ),
               const SizedBox(width: dPadding,),
               const Expanded(
