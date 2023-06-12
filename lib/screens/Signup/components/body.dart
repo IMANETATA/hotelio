@@ -8,8 +8,9 @@ import 'package:hotelio/components/rounded_pessword_field.dart';
 import 'package:hotelio/screens/Signup/components/background.dart';
 import 'package:hotelio/screens/Signup/components/or_divider.dart';
 import 'package:hotelio/screens/Signup/components/social_icon.dart';
-import 'package:hotelio/screens/home/homepage.dart';
+
 import 'package:hotelio/screens/login/login_screen.dart';
+import 'package:hotelio/screens/services/roomscreen/room_page.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -55,7 +56,7 @@ class Body extends StatelessWidget {
             RoundedButton(
               press: () {
                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                return const HomePage();
+                return const RoomPage();
               }));
               },
               text: "Sign Up",

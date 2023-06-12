@@ -1,8 +1,9 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hotelio/components/rounded_button.dart';
 import 'package:hotelio/constants.dart';
+import 'package:hotelio/screens/login/login_screen.dart';
 import 'package:hotelio/screens/services/restaurant_page.dart';
-import 'package:hotelio/screens/services/roomscreen/room_page.dart';
 import 'package:hotelio/screens/services/spa_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -18,17 +19,42 @@ class HomePage extends StatelessWidget {
         ),
         title:const Text('Hotelio', style: TextStyle(color: Colors.white)),
       ),
-      body:const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            HotelImage(),
-            SizedBox(height: 10),
-            HotelDescription(),
-            SizedBox(height: 10),
-            BookButton(),
-            SizedBox(height: 10),
-            ServicesSection(),
+            const HotelImage(),
+            const SizedBox(height: 10),
+            const HotelDescription(),
+            const SizedBox(height: 10),
+            CarouselSlider(
+              options: CarouselOptions(
+                height: 200,
+                autoPlay: true,
+                enlargeCenterPage: true,
+                aspectRatio: 16 / 9,
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enableInfiniteScroll: true,
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
+              ),
+              items: [
+                Image.asset(
+                  'assets/images/otel.png',
+                  fit: BoxFit.cover,
+                ),
+                Image.asset(
+                  'assets/images/restau.png',
+                  fit: BoxFit.cover,
+                ),
+                Image.asset(
+                  'assets/images/spa1.png',
+                  fit: BoxFit.cover,
+                ),
+              ],
+            ),
+            const BookButton(),
+            const SizedBox(height: 10),
+            const ServicesSection(),
           ],
         ),
       ),
@@ -94,7 +120,7 @@ class BookButton extends StatelessWidget {
          Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>const RoomPage(),
+                      builder: (context) =>const LoginScreen(),
                     ),
                   );
         },

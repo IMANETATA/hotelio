@@ -1,7 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:hotelio/screen/main/main_screen.dart';
+//import 'package:google_fonts/google_fonts.dart';
+//import 'package:hotelio/screen/main/main_screen.dart';
+import 'package:hotelio/screens/welcome_screen.dart';
 //import 'package:hotelio/screens/welcome_screen.dart';
 import 'constants.dart';
 void main() {
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+   /* return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Flutter Admin Panel",
       theme: ThemeData.dark().copyWith(
@@ -24,9 +25,9 @@ class MyApp extends StatelessWidget {
         canvasColor: kPrimaryColor,
       ),
       home:const MainScreen(),
-    );
+    );*/
 
-   /* return MaterialApp(
+   return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',
       theme: ThemeData(
@@ -37,6 +38,6 @@ class MyApp extends StatelessWidget {
       ),
      home: const WelcomeScreen(),
      //home:const MainScreen() ,
-    );*/
+    );
   }
 }

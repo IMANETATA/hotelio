@@ -4,9 +4,9 @@ import 'package:hotelio/components/already_have_an_account_check.dart';
 import 'package:hotelio/components/rounded_button.dart';
 import 'package:hotelio/components/rounded_input_field.dart';
 import 'package:hotelio/components/rounded_pessword_field.dart';
-import 'package:hotelio/screens/home/homepage.dart';
 import 'package:hotelio/screens/Signup/signup_screen.dart';
 import 'package:hotelio/screens/components/background.dart';
+import 'package:hotelio/screens/services/roomscreen/room_page.dart';
 //import 'package:hotelio/screens/login/components/background.dart';
 class Body extends StatelessWidget {
   const Body({
@@ -39,7 +39,7 @@ class Body extends StatelessWidget {
             text: "LOGIN",
             press: (){
               Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                return const HomePage();
+                return const RoomPage();
               }));
             },
           ),
