@@ -49,6 +49,7 @@ dependencies:
   fluttertoast: ^8.2.2
   cloud_firestore: ^4.8.0
   google_sign_in: ^6.1.4
+  flutter_admin_scaffold: ^1.2.0
 flutter_native_splash:
   android: true
   ios: true
