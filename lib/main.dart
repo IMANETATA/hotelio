@@ -1,11 +1,15 @@
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'firebase_options.dart';
 //import 'package:google_fonts/google_fonts.dart';
 //import 'package:hotelio/screen/main/main_screen.dart';
 import 'package:hotelio/screens/welcome_screen.dart';
 //import 'package:hotelio/screens/welcome_screen.dart';
 import 'constants.dart';
-void main() {
+void main()async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
   runApp(const MyApp());
 }
 //web

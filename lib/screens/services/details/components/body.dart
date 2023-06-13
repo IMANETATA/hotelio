@@ -52,7 +52,7 @@ class _BodyState extends State<Body> {
                           context: context,
                           builder: (BuildContext context) {
                             return AlertDialog(
-                              backgroundColor: Colors.white,
+                              backgroundColor: const Color.fromARGB(255, 255, 255, 255),
                               //title: const Text(
                               //  "Book Now",
                               //  textAlign: TextAlign.center,
@@ -79,17 +79,22 @@ class _BodyState extends State<Body> {
                                         return AlertDialog(
                                           content: const Text(
                                             "Your reservation has been made.",
-                                            style: TextStyle(fontSize: 15),
+                                            style: TextStyle(fontSize: 19),
                                           ),
                                           actions: [
-                                            ElevatedButton(
-                                              onPressed: () {
-                                                Navigator.pop(context);
-                                              },
-                                              child: const Text(
-                                                "OK",
-                                                style: TextStyle(
-                                                  color: backgroundColor2,
+                                            Center(
+                                              child: ElevatedButton(
+                                                onPressed: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                style: ElevatedButton.styleFrom(
+                                                                                backgroundColor: kPrimaryColor,
+                                                                              ),
+                                                child: const Text(
+                                                  "OK",
+                                                  style: TextStyle(
+                                                    color: Colors.white,
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -167,24 +172,32 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+       // mainAxisAlignment: MainAxisAlignment.center,
+        //crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            "Pick Date:",
-            textAlign: TextAlign.left,
-            style: Theme.of(context).textTheme.titleLarge,
+          const Padding(padding:EdgeInsets.only(top: kDefaultPadding) ),
+          const Text(
+            "Your Reservation:",
+            style: TextStyle(
+            color: kPrimaryColor,
+          fontSize: 22,
+          fontWeight: FontWeight.bold,)
           ),
           const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
           Text(
-            start != null ? DateFormat('dd-MM-yyyy').format(start!) : "-",
+            start != null ? DateFormat('dd-MM-yyyy ').format(start!) : " - ",
             style:const TextStyle(fontSize: 18),
           ),
           const Text("To", style: TextStyle(fontSize: 18)),
           Text(
-            end != null ? DateFormat('dd-MM-yyyy').format(end!) : "-",
+            end != null ? DateFormat(' dd-MM-yyyy').format(end!) : " -",
             style:const TextStyle(fontSize: 18),
           ),
+          ],),
+         
           const SizedBox(height: 16),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
@@ -233,13 +246,27 @@ class _HomeScreenState extends State<HomeScreen> {
           const SizedBox(
             height: 16,
           ),
+          Row(
+            //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
           Text(
             "Number of Rooms: ${numberOfRooms ?? "-"}",
             style: Theme.of(context).textTheme.bodyLarge,
+            textAlign:TextAlign.left,
           ),
-          Text(
+          //const Spacer(),
+          ],),
+          Row(children: [
+            Text(
             "Number of People: ${numberOfPeople ?? "-"}",
             style: Theme.of(context).textTheme.bodyLarge,
+            textAlign:TextAlign.left,
+          ),
+          ],
+          ),
+          
+          const SizedBox(
+            height: 20,
           ),
         ],
       ),

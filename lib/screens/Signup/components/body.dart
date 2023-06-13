@@ -12,8 +12,19 @@ import 'package:hotelio/screens/Signup/components/social_icon.dart';
 import 'package:hotelio/screens/login/login_screen.dart';
 import 'package:hotelio/screens/services/roomscreen/room_page.dart';
 
-class Body extends StatelessWidget {
+
+class Body extends StatefulWidget {
   const Body({Key? key}) : super(key: key);
+
+  @override
+  State<Body> createState() => _BodyState();
+}
+
+class _BodyState extends State<Body> {
+      signUp()async{
+        
+      }
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +45,17 @@ class Body extends StatelessWidget {
             
             
             RoundedInputField(
+              
               hintText: "Enter your Username",
               onChanged: (value) {},
+              validator: (value) {
+    if (value!.length > 100) {
+      return 'username can`t be larger than 100';
+    }
+  if (value.length <2 ) {
+      return 'username can`t be less than 2';
+    }
+    },
             ),
             RoundedInputField(
               hintText: "Enter your Full Name",
@@ -54,7 +74,7 @@ class Body extends StatelessWidget {
               onChanged: (value) {},
             ),
             RoundedButton(
-              press: () {
+              press: () {  
                  Navigator.of(context).push(MaterialPageRoute(builder: (context){
                 return const RoomPage();
               }));

@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hotelio/components/rounded_button.dart';
 import 'package:hotelio/constants.dart';
 import 'package:hotelio/screens/login/login_screen.dart';
-import 'package:hotelio/screens/services/restaurant_page.dart';
-import 'package:hotelio/screens/services/spa_page.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -38,6 +37,7 @@ class HomePage extends StatelessWidget {
                 autoPlayAnimationDuration: const Duration(milliseconds: 800),
               ),
               items: [
+                
                 Image.asset(
                   'assets/images/otel.png',
                   fit: BoxFit.cover,
@@ -91,15 +91,16 @@ class HotelDescription extends StatelessWidget {
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
+              //fontFamily: "DancingScript"
             ),
           ),
           SizedBox(height: 10),
           Text(
             'Discover, book, and enjoy the epitome'
-            ' of luxury with Hotelio - your ultimat'
+            ' of luxury with Hotelio - your ultimate'
             ' room booking destination.',
             style: TextStyle(
-              fontSize: 16,
+              fontSize: 17,
             ),
           ),
         ],
@@ -163,7 +164,7 @@ class ServicesSection extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>const RestaurantPage(),
+                      builder: (context) =>const LoginScreen(),
                     ),
                   );
                 },
@@ -175,7 +176,7 @@ class ServicesSection extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>const SpaPage(),
+                      builder: (context) =>const LoginScreen(),
                     ),
                   );
                 },
