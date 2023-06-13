@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       home:const MainScreen(),
     );*/
 
-   return MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',
       theme: ThemeData(
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
     //  colorScheme: ColorScheme.fromSeed(primarySwatch: Colors.deepPurple),
         useMaterial3: true,
       ),
-     home: const WelcomeScreen(),
+      home: const WelcomeScreen(),
      //home:const MainScreen() ,
     );
   }

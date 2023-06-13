@@ -97,7 +97,7 @@ class _BodyState extends State<Body> {
                     email: email,
                     password: password,
                   );
-
+//print(userCredential);
                   // Login successful, navigate to the desired screen
                   Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                     return const RoomPage();
