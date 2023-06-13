@@ -6,10 +6,12 @@ import 'package:hotelio/constants.dart';
 class RoundedPasswordField extends StatefulWidget {
   final ValueChanged<String>? onChanged;
   final String ?hintText;
+  final void Function(String?)? onSaved;
   const RoundedPasswordField({
     Key? key,
     this.onChanged, 
-    this.hintText,
+    this.hintText, 
+    this.onSaved,
   }) : super(key: key);
 
   @override
@@ -48,34 +50,3 @@ class _RoundedPasswordFieldState extends State<RoundedPasswordField> {
     );
   }
 }
-
-/*
-class RoundedPasswordField extends StatelessWidget {
-  final ValueChanged<String> ?onChanged;
-  const RoundedPasswordField({
-    super.key, 
-    this.onChanged,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFieldContainer(
-      child:TextField(
-        obscureText:true ,
-        onChanged: onChanged,
-        decoration: const InputDecoration(
-          hintText: "Password",
-          icon:Icon(
-            Icons.lock,
-            color:kPrimaryColor),
-            suffixIcon: Icon(
-                    Icons.visibility,
-                    color:kPrimaryColor ,),
-            border: InputBorder.none,
-             ),
-      )
-    );
-  }
-}
-
-*/
