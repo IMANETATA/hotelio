@@ -2,10 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
-import 'package:hotelio/admin/clients.dart';
 import 'package:hotelio/admin/dashboard_screen.dart';
-import 'package:hotelio/admin/reservations.dart';
-import 'package:hotelio/admin/rooms.dart';
 import 'package:hotelio/maitre/dashboard_screen.dart';
 import 'package:hotelio/maitre/reservationsalle.dart';
 import 'package:hotelio/maitre/reservationtable.dart';
@@ -71,17 +68,17 @@ class _HomeMasterState extends State<HomeMaster> {
           ),
           AdminMenuItem(
             title: 'Salles de spa',
-            route: Rooms.id,
+            route: Salles.id,
             icon: Icons.bed,
           ),
           AdminMenuItem(
             title: 'Tables de restaurant',
-            route: Reservations.id,
+            route: Tables.id,
             icon: Icons.table_bar,
           ),
           AdminMenuItem(
             title: 'Reservations Salles',
-            route: Clients.id,
+            route: ReservationSalle.id,
             icon: Icons.spa_outlined,
           ),
           AdminMenuItem(
