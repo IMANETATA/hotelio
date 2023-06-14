@@ -4,46 +4,49 @@ import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:hotelio/admin/clients.dart';
 import 'package:hotelio/admin/dashboard_screen.dart';
-import 'package:hotelio/admin/factures.dart';
 import 'package:hotelio/admin/reservations.dart';
 import 'package:hotelio/admin/rooms.dart';
+import 'package:hotelio/maitre/dashboard_screen.dart';
+import 'package:hotelio/maitre/reservationsalle.dart';
 import 'package:hotelio/maitre/reservationtable.dart';
+import 'package:hotelio/maitre/salles.dart';
+import 'package:hotelio/maitre/tables.dart';
 
 class HomeMaster extends StatefulWidget {
   const HomeMaster({super.key});
-  static const String id ="home_screen";
+  static const String id ="home_master_screen";
   
   @override
   State<HomeMaster> createState() => _HomeMasterState();
 }
 
 class _HomeMasterState extends State<HomeMaster> {
-    Widget _selectedScreen = DashboardScreen();
+    Widget _selectedScreen = DashboardScreenM();
     currnetScreen(item){
   switch(item.route){
-    case DashboardScreen.id:
+    case DashboardScreenM.id:
     setState(() {
-      _selectedScreen= DashboardScreen();
+      _selectedScreen= DashboardScreenM();
     });
     break;
-    case Rooms.id:
+    case Salles.id:
     setState(() {
-      _selectedScreen=const Rooms();
+      _selectedScreen=const Salles();
     });
     break;
-    case Reservations.id:
+    case Tables.id:
     setState(() {
-      _selectedScreen=const Reservations();
+      _selectedScreen=const Tables();
     });
     break;
-    case Clients.id:
+    case ReservationSalle.id:
     setState(() {
-      _selectedScreen=const Clients();
+      _selectedScreen=const ReservationSalle();
     });
     break;
-    case Factures.id:
+    case ReservationTable.id:
     setState(() {
-      _selectedScreen=const Factures();
+      _selectedScreen=const ReservationTable();
     });
     break;
   }
@@ -67,12 +70,12 @@ class _HomeMasterState extends State<HomeMaster> {
             icon: Icons.dashboard,
           ),
           AdminMenuItem(
-            title: 'Salles',
+            title: 'Salles de spa',
             route: Rooms.id,
             icon: Icons.bed,
           ),
           AdminMenuItem(
-            title: 'Tables',
+            title: 'Tables de restaurant',
             route: Reservations.id,
             icon: Icons.table_bar,
           ),

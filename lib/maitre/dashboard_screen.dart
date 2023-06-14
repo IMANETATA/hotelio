@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:hotelio/admin/services/firebase_services.dart';
 import 'package:hotelio/constants.dart';
 
-class DashboardScreen extends StatelessWidget {
+class DashboardScreenM extends StatelessWidget {
   
-  static const String id="dashboard screen";
+  static const String id="dashboard screenm";
   final FirebaseServices _services= FirebaseServices();
 
-  DashboardScreen({super.key});
+  DashboardScreenM({super.key});
   @override
   Widget build(BuildContext context) {
 
@@ -68,10 +68,10 @@ class DashboardScreen extends StatelessWidget {
         return const SizedBox();
       },
     ),
-      analyticWidget(title: "Total Salles",value:"0"),
+      
       analyticWidget(title: "Total Tables",value:"0"),
-      analyticWidget(title: "Total resevation of tables",value:"0"),
-      analyticWidget(title: "Total reservation of salles",value:"0"),]
+      analyticWidget(title: "Total Table Reservation",value:"0"),
+      analyticWidget(title: "Total Spa reservation",value:"0"),]
       )
       ],
     );

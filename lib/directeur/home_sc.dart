@@ -2,10 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
-import 'package:hotelio/admin/clients.dart';
 import 'package:hotelio/admin/dashboard_screen.dart';
 import 'package:hotelio/admin/reservations.dart';
-import 'package:hotelio/admin/rooms.dart';
+import 'package:hotelio/directeur/dashboard_screen.dart';
 import 'package:hotelio/directeur/emplyees.dart';
 import 'package:hotelio/directeur/maessages_complaints.dart';
 
@@ -13,22 +12,22 @@ import 'package:hotelio/directeur/maessages_complaints.dart';
 
 class HomeDirect extends StatefulWidget {
   const HomeDirect({super.key});
-  static const String id ="home_screen";
+  static const String id ="home_direct_screen";
   
   @override
   State<HomeDirect> createState() => _HomeDirectState();
 }
 
 class _HomeDirectState extends State<HomeDirect> {
-    Widget _selectedScreen = DashboardScreen();
+    Widget _selectedScreen = DashboardScreend();
     currnetScreen(item){
   switch(item.route){
-    case DashboardScreen.id:
+    case DashboardScreend.id:
     setState(() {
-      _selectedScreen= DashboardScreen();
+      _selectedScreen= DashboardScreend();
     });
     break;
-    case Rooms.id:
+    case Employees.id:
     setState(() {
       _selectedScreen=const Employees();
     });
@@ -38,7 +37,7 @@ class _HomeDirectState extends State<HomeDirect> {
       _selectedScreen=const Reservations();
     });
     break;
-    case Clients.id:
+    case MessagesComplaints.id:
     setState(() {
       _selectedScreen=const MessagesComplaints();
     });
