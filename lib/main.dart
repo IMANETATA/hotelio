@@ -1,11 +1,10 @@
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hotelio/admin/home_sc.dart';
 import 'firebase_options.dart';
 //import 'package:google_fonts/google_fonts.dart';
 //import 'package:hotelio/screen/main/main_screen.dart';
-import 'package:hotelio/screens/welcome_screen.dart';
-
+//import 'package:hotelio/screens/welcome_screen.dart';
 import 'constants.dart';
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +18,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Auth',
+      theme: ThemeData(
+        primaryColor: kPrimaryColor,
+        scaffoldBackgroundColor: Colors.white,
+    //  colorScheme: ColorScheme.fromSeed(primarySwatch: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const HomeSc(),);
   /* return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Flutter Admin Panel",
@@ -31,7 +40,7 @@ class MyApp extends StatelessWidget {
       home:const MainScreen(),
     );*/
 
-   return MaterialApp(
+  /* return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',
       theme: ThemeData(
@@ -42,6 +51,6 @@ class MyApp extends StatelessWidget {
       ),
       home: const WelcomeScreen(),
      //home:const MainScreen() ,
-    );
+    );*/
   }
 }
