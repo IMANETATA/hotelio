@@ -7,18 +7,17 @@ import 'package:hotelio/admin/dashboard_screen.dart';
 import 'package:hotelio/admin/factures.dart';
 import 'package:hotelio/admin/reservations.dart';
 import 'package:hotelio/admin/rooms.dart';
+import 'package:hotelio/maitre/reservationtable.dart';
 
-
-
-class HomeSc extends StatefulWidget {
-  const HomeSc({super.key});
+class HomeMaster extends StatefulWidget {
+  const HomeMaster({super.key});
   static const String id ="home_screen";
   
   @override
-  State<HomeSc> createState() => _HomeScState();
+  State<HomeMaster> createState() => _HomeMasterState();
 }
 
-class _HomeScState extends State<HomeSc> {
+class _HomeMasterState extends State<HomeMaster> {
     Widget _selectedScreen = DashboardScreen();
     currnetScreen(item){
   switch(item.route){
@@ -55,7 +54,7 @@ class _HomeScState extends State<HomeSc> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor:Colors.blue,
-        title:const Center(child:  Text('Admin Panel',style: TextStyle(
+        title:const Center(child:  Text('Master Panel',style: TextStyle(
           color: Colors.white
         ),)),
       ),
@@ -68,29 +67,29 @@ class _HomeScState extends State<HomeSc> {
             icon: Icons.dashboard,
           ),
           AdminMenuItem(
-            title: 'Rooms',
+            title: 'Salles',
             route: Rooms.id,
-            icon: Icons.room_service,
+            icon: Icons.bed,
           ),
           AdminMenuItem(
-            title: 'Reservations',
+            title: 'Tables',
             route: Reservations.id,
-            icon: Icons.book,
+            icon: Icons.table_bar,
           ),
           AdminMenuItem(
-            title: 'Clients',
+            title: 'Reservations Salles',
             route: Clients.id,
-            icon: Icons.person_2_rounded,
+            icon: Icons.spa_outlined,
           ),
           AdminMenuItem(
-            title: 'Factures',
-            route: Factures.id,
-            icon: Icons.list_alt,
+            title: 'Reservations Tables',
+            route: ReservationTable.id,
+            icon: Icons.restaurant_rounded,
             
           ),
           
         ],
-        selectedRoute: HomeSc.id,
+        selectedRoute: HomeMaster.id,
         onSelected: (item) {
           currnetScreen(item);
           //if (item.route != null) {

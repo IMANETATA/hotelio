@@ -4,21 +4,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_admin_scaffold/admin_scaffold.dart';
 import 'package:hotelio/admin/clients.dart';
 import 'package:hotelio/admin/dashboard_screen.dart';
-import 'package:hotelio/admin/factures.dart';
 import 'package:hotelio/admin/reservations.dart';
 import 'package:hotelio/admin/rooms.dart';
+import 'package:hotelio/directeur/emplyees.dart';
+import 'package:hotelio/directeur/maessages_complaints.dart';
 
 
 
-class HomeSc extends StatefulWidget {
-  const HomeSc({super.key});
+class HomeDirect extends StatefulWidget {
+  const HomeDirect({super.key});
   static const String id ="home_screen";
   
   @override
-  State<HomeSc> createState() => _HomeScState();
+  State<HomeDirect> createState() => _HomeDirectState();
 }
 
-class _HomeScState extends State<HomeSc> {
+class _HomeDirectState extends State<HomeDirect> {
     Widget _selectedScreen = DashboardScreen();
     currnetScreen(item){
   switch(item.route){
@@ -29,7 +30,7 @@ class _HomeScState extends State<HomeSc> {
     break;
     case Rooms.id:
     setState(() {
-      _selectedScreen=const Rooms();
+      _selectedScreen=const Employees();
     });
     break;
     case Reservations.id:
@@ -39,14 +40,10 @@ class _HomeScState extends State<HomeSc> {
     break;
     case Clients.id:
     setState(() {
-      _selectedScreen=const Clients();
+      _selectedScreen=const MessagesComplaints();
     });
     break;
-    case Factures.id:
-    setState(() {
-      _selectedScreen=const Factures();
-    });
-    break;
+    
   }
  }
   @override
@@ -55,7 +52,7 @@ class _HomeScState extends State<HomeSc> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor:Colors.blue,
-        title:const Center(child:  Text('Admin Panel',style: TextStyle(
+        title:const Center(child:  Text('Director Panel',style: TextStyle(
           color: Colors.white
         ),)),
       ),
@@ -68,9 +65,9 @@ class _HomeScState extends State<HomeSc> {
             icon: Icons.dashboard,
           ),
           AdminMenuItem(
-            title: 'Rooms',
-            route: Rooms.id,
-            icon: Icons.room_service,
+            title: 'Employees',
+            route:Employees.id,
+            icon: Icons.emoji_people_outlined,
           ),
           AdminMenuItem(
             title: 'Reservations',
@@ -78,19 +75,14 @@ class _HomeScState extends State<HomeSc> {
             icon: Icons.book,
           ),
           AdminMenuItem(
-            title: 'Clients',
-            route: Clients.id,
-            icon: Icons.person_2_rounded,
+            title: 'Messages and complaints',
+            route: MessagesComplaints.id,
+            icon: Icons.message,
           ),
-          AdminMenuItem(
-            title: 'Factures',
-            route: Factures.id,
-            icon: Icons.list_alt,
-            
-          ),
+        
           
         ],
-        selectedRoute: HomeSc.id,
+        selectedRoute: HomeDirect.id,
         onSelected: (item) {
           currnetScreen(item);
           //if (item.route != null) {

@@ -63,15 +63,15 @@ class DashboardScreen extends StatelessWidget {
           return const Text("Loading");
         }
         if(snapshot.hasData){
-          return analyticWidget(title: "Total Rooms",value:snapshot.data!.size.toString()); 
+          return analyticWidget(title: "Total Salles",value:snapshot.data!.size.toString()); 
         }
         return const SizedBox();
       },
     ),
-      analyticWidget(title: "Total Rooms",value:"0"),
-      analyticWidget(title: "Total Reservations",value:"0"),
-      analyticWidget(title: "Total Clients",value:"0"),
-      analyticWidget(title: "Total Factures",value:"0"),]
+      analyticWidget(title: "Total Salles",value:"0"),
+      analyticWidget(title: "Total Tables",value:"0"),
+      analyticWidget(title: "Total resevation of tables",value:"0"),
+      analyticWidget(title: "Total reservation of salles",value:"0"),]
       )
       ],
     );
