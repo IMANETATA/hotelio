@@ -6,7 +6,7 @@ import 'package:hotelio/maitre/home_sc.dart';
 import 'firebase_options.dart';
 //import 'package:google_fonts/google_fonts.dart';
 //import 'package:hotelio/screen/main/main_screen.dart';
-//import 'package:hotelio/screens/welcome_screen.dart';
+import 'package:hotelio/screens/welcome_screen.dart';
 import 'constants.dart';
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,20 +29,10 @@ class MyApp extends StatelessWidget {
     //  colorScheme: ColorScheme.fromSeed(primarySwatch: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeMaster(),);
-  /* return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "Flutter Admin Panel",
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: Colors.white,
-        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-        .apply(bodyColor: Colors.black),
-        canvasColor: kPrimaryColor,
-      ),
-      home:const MainScreen(),
-    );*/
+      home: const HomeSc(),);
+ 
 
-  /* return MaterialApp(
+   /*return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',
       theme: ThemeData(
@@ -56,3 +46,14 @@ class MyApp extends StatelessWidget {
     );*/
   }
 }
+ /* return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Flutter Admin Panel",
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.white,
+        textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
+        .apply(bodyColor: Colors.black),
+        canvasColor: kPrimaryColor,
+      ),
+      home:const MainScreen(),
+    );*/

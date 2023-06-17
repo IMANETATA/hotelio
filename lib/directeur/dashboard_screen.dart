@@ -70,7 +70,7 @@ class DashboardScreend extends StatelessWidget {
     ),
       
       analyticWidget(title: "Total Reservations",value:"0"),
-      analyticWidget(title: "Total Messages and Complaints",value:"0"),]
+      analyticWidget(title: "Messages/Complaints",value:"0"),]
       )
       ],
     );
