@@ -1,13 +1,17 @@
 
 // ignore_for_file: use_build_context_synchronously, unused_local_variable, avoid_print
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hotelio/admin/home_sc.dart';
 import 'package:hotelio/components/already_have_an_account_check.dart';
 import 'package:hotelio/components/rounded_button.dart';
 import 'package:hotelio/components/rounded_input_field.dart';
 import 'package:hotelio/components/rounded_pessword_field.dart';
 import 'package:hotelio/constants.dart';
+import 'package:hotelio/directeur/home_sc.dart';
+import 'package:hotelio/maitre/home_sc.dart';
 import 'package:hotelio/screens/Signup/signup_screen.dart';
 import 'package:hotelio/screens/components/background.dart';
 import 'package:hotelio/screens/services/roomscreen/room_page.dart';
@@ -81,35 +85,70 @@ class _BodyState extends State<Body> {
                   color: Colors.red,
                 ),
               ),
-            RoundedButton(
-              text: "LOGIN",
-              press: () async {
-                if (!isValidEmail(email)) {
-                  setState(() {
-                    showEmailError = true; // Affiche le message d'erreur d'email
-                  });
-                  return;
-                }
+           RoundedButton(
+  text: "LOGIN",
+  press: () async {
+    if (!isValidEmail(email)) {
+      setState(() {
+        showEmailError = true; // Affiche le message d'erreur d'email
+      });
+      return;
+    }
 
-                try {
-                  UserCredential userCredential =
-                      await FirebaseAuth.instance.signInWithEmailAndPassword(
-                    email: email,
-                    password: password,
-                  );
-//print(userCredential);
-                  // Login successful, navigate to the desired screen
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                    return const RoomPage();
-                  }));
-                } catch (e) {
-                  // Handle login errors
-                  setState(() {
-                    showPasswordError = true; // Affiche le message d'erreur de mot de passe
-                  });
-                }
-              },
-            ),
+    try {
+      UserCredential userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      // Récupérer l'utilisateur actuellement connecté
+      User? user = userCredential.user;
+
+      // Vérifier le rôle de l'utilisateur dans la collection "utilisateur"
+      DocumentSnapshot userSnapshot = await FirebaseFirestore.instance
+          .collection('utilisateur')
+          .doc(user!.uid)
+          .get();
+
+      if (userSnapshot.exists) {
+          Map<String, dynamic> userData = userSnapshot.data() as Map<String, dynamic>;
+
+          String role = userData['role'];
+
+        // Rediriger vers l'interface appropriée en fonction du rôle
+        if (role == 'directeur') {
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+            return const HomeDirect();
+          }));
+        } else if (role == 'receptionniste') {
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+            return const HomeSc();
+          }));
+        } else if (role == 'maitre') {
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+            return const HomeMaster();
+          }));
+        } else {
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+            return const RoomPage();
+          }));
+        }
+      } else {
+        // L'utilisateur n'existe pas dans la collection "utilisateur"
+        setState(() {
+          showPasswordError = true; // Affiche le message d'erreur de mot de passe
+        });
+      }
+    } catch (e) {
+      // Handle login errors
+      setState(() {
+        showPasswordError = true; // Affiche le message d'erreur de mot de passe
+      });
+    }
+  },
+),
+
             const Text(
               "Forgot Password ?",
               style: TextStyle(color: kPrimaryColor),

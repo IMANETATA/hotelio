@@ -55,7 +55,7 @@ class _HomeScState extends State<HomeSc> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor:Colors.blue,
-        title:const Center(child:  Text('Admin Panel',style: TextStyle(
+        title:const Center(child:  Text('Receptionist Panel',style: TextStyle(
           color: Colors.white
         ),)),
       ),

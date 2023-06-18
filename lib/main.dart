@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:hotelio/admin/home_sc.dart';
-import 'package:hotelio/directeur/home_sc.dart';
-import 'package:hotelio/maitre/home_sc.dart';
+//import 'package:hotelio/admin/home_sc.dart';
+//import 'package:hotelio/directeur/home_sc.dart';
+//import 'package:hotelio/maitre/home_sc.dart';
 import 'firebase_options.dart';
 //import 'package:google_fonts/google_fonts.dart';
 //import 'package:hotelio/screen/main/main_screen.dart';
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    /*return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Hotelio',
       theme: ThemeData(
@@ -29,10 +29,10 @@ class MyApp extends StatelessWidget {
     //  colorScheme: ColorScheme.fromSeed(primarySwatch: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeSc(),);
- 
+      home: const HomeSc(),);*/
 
-   /*return MaterialApp(
+
+   return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',
       theme: ThemeData(
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
       ),
       home: const WelcomeScreen(),
      //home:const MainScreen() ,
-    );*/
+    );
   }
 }
  /* return MaterialApp(

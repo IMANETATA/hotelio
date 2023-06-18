@@ -70,8 +70,8 @@ class DashboardScreenM extends StatelessWidget {
     ),
       
       analyticWidget(title: "Total Tables",value:"0"),
-      analyticWidget(title: "Total Table Reservation",value:"0"),
-      analyticWidget(title: "Total Spa reservation",value:"0"),]
+      analyticWidget(title: "Table Reservation",value:"0"),
+      analyticWidget(title: "Spa Reservation",value:"0"),]
       )
       ],
     );
